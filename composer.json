@@ -25,8 +25,8 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "php -r \"chmod(__DIR__ . '/comcol', 0777);\"",
-            "php -r \"chmod(__DIR__ . '/src/yii', 0777);\""
+            "php -r \"chmod(__DIR__ . '/comcol', 0755);\"",
+            "php -r \"chmod(__DIR__ . '/src/yii', 0755);\""
         ]
     }
 }
