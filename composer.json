@@ -22,5 +22,11 @@
         "ext-libxml": "*",
         "yiisoft/yii2": "^2.0.0",
         "yiisoft/yii2-httpclient": "~2.0.0"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"chmod(__DIR__ . '/comcol', 0777);\"",
+            "php -r \"chmod(__DIR__ . '/src/yii', 0777);\""
+        ]
     }
 }
