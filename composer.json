@@ -1,14 +1,26 @@
 {
     "name": "kl83/comments-collector",
-    "type": "library",
-    "require": {
-        "php": ">=5.4"
-    },
+    "description": "Console script to grab feedbacks",
+    "type": "project",
+    "keywords": [
+        "comments",
+        "feedbacks",
+        "grabber",
+        "import"
+    ],
     "license": "MIT",
     "authors": [
         {
             "name": "Aleksandr Solovyov",
             "email": "solovyov.a.a.19@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "php": ">=7.0",
+        "ext-dom": "*",
+        "ext-json": "*",
+        "ext-libxml": "*",
+        "yiisoft/yii2": "^2.0.0",
+        "yiisoft/yii2-httpclient": "~2.0.0"
+    }
 }
