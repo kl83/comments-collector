@@ -14,7 +14,7 @@ class BookingSource extends BaseSource
 
     public function getTitle(): string
     {
-        return 'Booking';
+        return 'Booking.com';
     }
 
     protected function grab()
