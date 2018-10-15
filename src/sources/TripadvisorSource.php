@@ -82,10 +82,14 @@ class TripadvisorSource extends BaseSource
                 './/span[@class="ratingDate"]',
                 'title'
             );
+            $ratingAttr = $finder->getAttribute($node, './/span[contains(@class, "ui_bubble_rating")]', 'class');
+            $rating = preg_replace('~^.*(\d+)$~', '$1', $ratingAttr);
             $this->addComment([
                 'datetime' => $this->parseDate($date),
                 'userName' => $finder->getText($node, './/div[@class="member_info"]//div[@class="info_text"]//div'),
                 'text' => $finder->getText($node, './/p[@class="partial_entry"]'),
+                'maxRating' => 5,
+                'rating' => $rating / 10,
             ]);
         }
     }

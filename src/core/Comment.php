@@ -25,11 +25,6 @@ class Comment extends Model
     /**
      * @var int
      */
-    public $rating;
-
-    /**
-     * @var int
-     */
     public $maxRating;
 
     /**
@@ -51,6 +46,26 @@ class Comment extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @var float
+     */
+    private $_rating;
+
+    public function setRating($value)
+    {
+        $this->_rating = (float)str_replace(',', '.', trim($value));
+    }
+
+    public function getRating(): float
+    {
+        return $this->_rating;
+    }
+
+    public function getNormalizedRating(int $maxRating): int
+    {
+        return round($this->rating * ($maxRating / $this->maxRating));
+    }
 
     public function rules(): array
     {

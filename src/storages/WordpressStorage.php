@@ -57,6 +57,7 @@ class WordpressStorage extends BaseStorage
                 ]);
                 add_post_meta($postId, 'source', $comment->sourceTitle, true);
                 add_post_meta($postId, 'review-text', $comment->text, true);
+                add_post_meta($postId, 'rating', $comment->getNormalizedRating(10), true);
                 $addedCommentsCount++;
             }
         }

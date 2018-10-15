@@ -33,6 +33,8 @@ class YandexSource extends BaseSource
                 'datetime' => new DateTime($datetime),
                 'userName' => $finder->getText($node, './/div[@class="review__user-name"]'),
                 'text' => $finder->getText($node, './/div[@class="review__description"]'),
+                'maxRating' => 5,
+                'rating' => $finder->getAttribute($node, './/meta[@itemprop="ratingValue"]', 'content'),
             ]);
         }
     }

@@ -29,6 +29,8 @@ class GoogleSource extends BaseSource
                 'datetime' => $datetime,
                 'userName' => ArrayHelper::getValue($review, 'author_name'),
                 'text' => ArrayHelper::getValue($review, 'text'),
+                'maxRating' => 5,
+                'rating' => ArrayHelper::getValue($review, 'rating'),
             ]);
         }
     }

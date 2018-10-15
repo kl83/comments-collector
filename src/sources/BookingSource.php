@@ -29,11 +29,18 @@ class BookingSource extends BaseSource
                 './/meta[@itemprop="datePublished"]',
                 'content'
             );
+            $positive = $finder->getText($node, './/p[@class="review_pos "]//span');
+            $negative = $finder->getText($node, './/p[@class="review_neg "]//span');
+            if ($positive && $negative) {
+                $positive = '<div class="positive-text">' . $positive . '</div>';
+                $negative = '<div class="negative-text">' . $negative . '</div>';
+            }
             $this->addComment([
                 'datetime' => new DateTime($datetime),
                 'userName' => $finder->getText($node, './/h4//*[@itemprop="name"]'),
-                'text' => $finder->getText($node, './/p[@class="review_pos "]//span') . PHP_EOL .
-                    $finder->getText($node, './/p[@class="review_neg "]//span'),
+                'text' => $positive . $negative,
+                'maxRating' => 10,
+                'rating' => $finder->getText($node, './/span[@class="review-score-badge"]'),
             ]);
         }
     }
